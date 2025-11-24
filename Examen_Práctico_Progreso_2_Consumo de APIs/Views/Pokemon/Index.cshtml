@@ -21,7 +21,10 @@
             <tr>
                 <td>@item["name"]</td>
                 <td>
-                    <a href="@item["url"]" target="_blank" class="btn btn-primary btn-sm">Ver API</a>
+                    <form action="Detalles" method="get">
+                        <input type="hidden" name="url" value="@(item["url"])" />
+                        <button type="submit" class="btn btn-primary btn-sm">Ver API</button>
+                    </form>
                 </td>
             </tr>
         }

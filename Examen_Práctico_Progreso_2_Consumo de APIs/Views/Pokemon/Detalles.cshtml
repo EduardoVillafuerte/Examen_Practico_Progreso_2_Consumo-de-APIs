@@ -1,0 +1,20 @@
+﻿@model Newtonsoft.Json.Linq.JObject
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+
+<h2>@Model["name"]</h2>
+
+<img src="@Model["sprites"]["front_default"]" width="150" />
+
+<h3>Tipos</h3>
+<ul>
+    @foreach (var t in Model["types"])
+    {
+        <li>@t["type"]["name"]</li>
+    }
+</ul>

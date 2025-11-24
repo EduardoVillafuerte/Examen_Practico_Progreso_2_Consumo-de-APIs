@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -20,6 +21,13 @@ namespace Examen_Práctico_Progreso_2_Consumo_de_APIs.Controllers
             JObject json = JObject.Parse(response);
             var results = json["results"];
             return View(results);
+        }
+
+        public async Task<ActionResult> Detalles(string url) 
+        {
+            var response = await _httpClient.GetStringAsync(url);
+            JObject pokemon = JObject.Parse(response);
+            return View(pokemon);
         }
     }
 }
