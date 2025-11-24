@@ -1,12 +1,6 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System.Net.Http;
-using System.Security.Policy;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Examen_Práctico_Progreso_2_Consumo_de_APIs.Controllers
@@ -25,9 +19,15 @@ namespace Examen_Práctico_Progreso_2_Consumo_de_APIs.Controllers
 
         public async Task<ActionResult> Detalles(string url) 
         {
-            var response = await _httpClient.GetStringAsync(url);
-            JObject pokemon = JObject.Parse(response);
-            return View(pokemon);
+            try
+            {
+                var response = await _httpClient.GetStringAsync(url);
+                JObject pokemon = JObject.Parse(response);
+                return View(pokemon);
+            }
+            catch {
+                return RedirectToAction("/Index");
+            }
         }
     }
 }

@@ -21,9 +21,9 @@
             <tr>
                 <td>@item["name"]</td>
                 <td>
-                    <form action="Detalles" method="get">
+                    <form action="@Url.Action("Detalles", "Pokemon")" method="get">
                         <input type="hidden" name="url" value="@(item["url"])" />
-                        <button type="submit" class="btn btn-primary btn-sm">Ver API</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Ver detalles</button>
                     </form>
                 </td>
             </tr>
