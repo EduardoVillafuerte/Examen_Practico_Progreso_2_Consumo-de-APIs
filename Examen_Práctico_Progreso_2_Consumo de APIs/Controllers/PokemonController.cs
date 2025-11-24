@@ -11,7 +11,7 @@ namespace Examen_Práctico_Progreso_2_Consumo_de_APIs.Controllers
         
         public async Task<ActionResult> Index()
         {
-            var response = await _httpClient.GetStringAsync("https://pokeapi.co/api/v2/pokemon");
+            var response = await _httpClient.GetStringAsync("https://pokeapi.co/api/v2/pokemon?limit=50");
             JObject json = JObject.Parse(response);
             var results = json["results"];
             return View(results);
